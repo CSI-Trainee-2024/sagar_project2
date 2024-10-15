@@ -4,35 +4,56 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>workout_tracker</title>
+    <title>Workout Tracker</title>
 </head>
 <body>
     <div class="header">
-            <h1>Track Your Reps & Time Efficiently</h1>
-            <button class="button"><h2>Begin Workout</h2></button>
-    </div>
-    <div class="container">
-        <div class="form">
-            <input type="text" id="exercise_name" placeholder="Add Your Exercise">
-            <input type="time" id="exercise_time" placeholder="Specify Time Limit">
-            <button>Add to Workout Plan</button>
+        <h1>Track Your Reps & Time Efficiently</h1>
+        <div>
+            <button class="button" onclick="beginWorkout()">Begin</button>
+            <button class="button" onclick="pauseWorkout()">Pause</button>
+            <button class="button" onclick="resumeWorkout()">Resume</button>
+            <button class="button" onclick="resetWorkout()">Reset</button>
         </div>
     </div>
+    <form class="form" onsubmit="addWorkout(event)">
+        <input type="text" class="text_input" id="workout_text" placeholder="Workout Name" required />
+        <div class="time_form">
+            <div class="time_elements">
+                <label for="hours_interval">Hours:</label>
+                <input type="number" id="hours_interval" class="time_input" min="0" required />
+            </div>
+            <div class="time_elements">
+                <label for="minutes_interval">Minutes:</label>
+                <input type="number" id="minutes_interval" min="0" class="time_input" required />
+            </div>
+            <div class="time_elements">
+                <label for="seconds_interval">Seconds:</label>
+                <input type="number" id="seconds_interval" min="0" class="time_input" required />
+            </div>
+        </div>
+        <button type="submit" class="button">Add Workout</button>
+    </form>
 
-
-    <div class="container" id="screen" style="display: none;">
+    <ul id="workouts"></ul>
+    <div class="end_work">
+        <button class="button_end" onclick="endWorkout()">End Workout</button>
+    </div>
+    <div class="container" id="workout_summary"></div>
+    <div class="container" id="show_end" style="visibility: hidden;">
         <h1>Workout Complete!</h1>
-        <p>Well Done! Here Are Your Workout Status:</p>
+        <p>Well Done! Here Are Your Workout Stats:</p>
         <table>
+            <thead>
                 <tr>
                     <th>Exercise Name</th>
                     <th>Planned Time</th>
                     <th>Actual Completion Time</th>
                 </tr>
-            <tbody id="workout-stats"></tbody>
+            </thead>
+            <tbody id="workout_stats"></tbody>
         </table>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>

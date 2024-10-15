@@ -22,7 +22,7 @@ h1{
 .button{
     cursor: pointer;
     font-weight: bold;
-    width: 300px;
+    width: 150px;
     text-align: center;
     color: rgb(7, 7, 7);
     font-weight: bolder;
@@ -31,6 +31,7 @@ h1{
     border: 1px solid rgb(16, 16, 16);
     box-shadow: 0 5px 5px rgb(8, 8, 8);
     transition: all 0.2s;
+    justify-content: space-evenly;
 }
 .button i {
     color: aliceblue;
@@ -47,16 +48,65 @@ h1{
     color: rgb(78, 63, 56);
 }
 
-.container{
-    padding: 35px;
-    margin: 35px;
-    background-color: rgb(67, 254, 188);
-    color: black;
-    box-shadow: 0px 5px 5px black;
-    font-size: 20px;
-    font-weight: bolder;
-    border-radius: 20px;
+.form{
+        display: flex;
+        justify-content: space-around;
+        background-color: rgb(249, 136, 95);;
+        margin: 30px;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 10px 10px 0px black;
+}
+.time_form{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+ justify-content: space-between;
+}
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form {
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .time_form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .form {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .time_form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
